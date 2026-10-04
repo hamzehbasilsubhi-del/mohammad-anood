@@ -445,7 +445,7 @@
 
             let isInteractionHandled = false;
 
-            function handleUserInteraction(e) {
+            async function handleUserInteraction(e) {
                 if (isInteractionHandled) return;
                 isInteractionHandled = true;
 
@@ -453,9 +453,13 @@
                     e.preventDefault();
                 }
 
-                // 1. Play Background Music
+                // 1. Play Background Music safely
                 if (bgMusic) {
-                    bgMusic.play().catch(err => console.log("Audio play prevented:", err));
+                    try {
+                        await bgMusic.play();
+                    } catch (err) {
+                        console.log("Audio play prevented:", err);
+                    }
                 }
 
                 // 2. Hide Poster and Play Cover Video immediately
@@ -463,7 +467,11 @@
                 if (coverVideo) {
                     coverVideo.classList.remove('hidden');
                     coverVideo.muted = false;
-                    coverVideo.play().catch(() => dismissCover());
+                    try {
+                        await coverVideo.play();
+                    } catch {
+                        dismissCover();
+                    }
                 } else {
                     dismissCover();
                 }
@@ -472,6 +480,7 @@
             // Clean unified event listener
             if (sealClickArea) {
                 sealClickArea.addEventListener('click', handleUserInteraction, { once: true });
+                sealClickArea.addEventListener('touchstart', handleUserInteraction, { once: true, passive: true });
             }
 
             if (coverVideo) {
