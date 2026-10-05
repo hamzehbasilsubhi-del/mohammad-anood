@@ -73,6 +73,30 @@
             font-family: 'Great Vibes', cursive;
         }
 
+        /* 9:16 Aspect Ratio Container Fix for All Devices */
+        .mobile-screen-frame {
+            width: 100%;
+            max-width: 412px;
+            aspect-ratio: 9 / 16;
+            min-height: 100vh;
+            margin: 0 auto;
+            position: relative;
+            background-color: #eae3dc;
+            overflow-y: auto;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        @media (min-width: 640px) {
+            .mobile-screen-frame {
+                height: 896px;
+                max-height: 90vh;
+                border-radius: 40px;
+                box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+                border: 1px solid rgba(229, 213, 177, 0.5);
+            }
+        }
+
         /* Video Cover Overlay Transition */
         #videoCover {
             transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.6s;
@@ -84,20 +108,18 @@
             pointer-events: none !important;
         }
 
-        /* Smooth Bottom Fade for Welcome Section with hero-bg */
+        /* Smooth Bottom Fade for Welcome Section */
         .welcome-fade-bottom {
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
-            height: 55%;
+            height: 45%;
             background: linear-gradient(
                 to bottom,
                 rgba(234, 227, 220, 0) 0%,
-                rgba(234, 227, 220, 0.15) 20%,
-                rgba(234, 227, 220, 0.45) 45%,
-                rgba(234, 227, 220, 0.8) 70%,
-                rgba(234, 227, 220, 0.95) 88%,
+                rgba(234, 227, 220, 0.2) 30%,
+                rgba(234, 227, 220, 0.7) 70%,
                 #eae3dc 100%
             );
             pointer-events: none;
@@ -114,9 +136,8 @@
             background: linear-gradient(
                 to bottom,
                 #eae3dc 0%,
-                rgba(234, 227, 220, 0.92) 20%,
-                rgba(234, 227, 220, 0.65) 45%,
-                rgba(234, 227, 220, 0.25) 75%,
+                rgba(234, 227, 220, 0.7) 30%,
+                rgba(234, 227, 220, 0.2) 70%,
                 rgba(234, 227, 220, 0) 100%
             );
             pointer-events: none;
@@ -125,12 +146,8 @@
 
         /* Bounce Animation for Scroll Indicator */
         @keyframes customBounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(6px);
-            }
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(6px); }
         }
         .animate-custom-bounce {
             animation: customBounce 2s infinite ease-in-out;
@@ -175,7 +192,7 @@
         }
     </style>
 </head>
-<body class="bg-[#000000] sm:bg-[#f3efe6] text-bronze antialiased flex justify-center items-center min-h-screen sm:py-6 font-tajawal">
+<body class="bg-[#000000] flex justify-center items-center min-h-screen sm:py-4 font-tajawal">
 
     <!-- BACKGROUND AUDIO -->
     <audio id="bgMusic" loop preload="auto" playsinline>
@@ -184,243 +201,228 @@
 
     <!-- FULLSCREEN COVER OVERLAY (STATIC POSTER + VIDEO) -->
     <div id="videoCover" class="fixed inset-0 z-50 flex items-center justify-center bg-[#eae3dc] overflow-hidden select-none">
-        <!-- 1. INSTANT STATIC POSTER -->
         <img id="posterImage" src="images/cover-poster.jpg" alt="غلاف الدعوة" class="absolute inset-0 w-full h-full object-cover z-10 transition-opacity duration-300">
-
-        <!-- 2. VIDEO PLAYER -->
         <video id="coverVideo" playsinline webkit-playsinline preload="auto" class="absolute inset-0 w-full h-full object-cover z-0 hidden">
             <source src="images/cover.mp4" type="video/mp4">
         </video>
-
-        <!-- 3. INVISIBLE FULL-SCREEN TAP LAYER -->
         <div id="sealClickArea" class="absolute inset-0 z-20 w-full h-full cursor-pointer bg-transparent"></div>
     </div>
 
-    <!-- Mobile Screen Frame Container (Max Width 430px) -->
-    <div class="w-full max-w-[430px] bg-[#eae3dc] sm:rounded-[40px] shadow-2xl overflow-hidden relative flex flex-col my-auto border-0 sm:border border-gold-200/50">
+    <!-- Mobile Screen Frame Container (9:16 Aspect Ratio) -->
+    <div class="mobile-screen-frame flex flex-col relative">
 
-        <!-- WELCOME SECTION WITH HERO-BG IMAGE & LOWERED TEXT CONTENT -->
-        <section id="welcomeSection" class="relative z-20 w-full min-h-[100dvh] flex flex-col justify-between items-center text-center px-6 py-8 overflow-hidden">
-            <!-- Background Hero Image -->
+        <!-- WELCOME SECTION -->
+        <section id="welcomeSection" class="relative z-20 w-full h-full min-h-[100%] flex flex-col justify-between items-center text-center px-6 py-6 overflow-hidden">
             <img src="images/hero-bg.jpg" alt="خلفية ترحيبية" class="absolute inset-0 w-full h-full object-cover z-0 opacity-95">
-
-            <!-- Bottom Smooth Fade Overlay to #eae3dc -->
             <div class="welcome-fade-bottom"></div>
 
-            <!-- Top Spacer to Push Content Downwards -->
-            <div class="h-32 sm:h-40"></div>
+            <!-- مسافة علوية أكبر بكثير لترحيل المحتوى نحو الأسفل بوضوح -->
+            <div class="h-48"></div>
 
-            <!-- Overlay Content (Lowered Ayah and Invitation Text) -->
+            <!-- الكتلة النصية المزحزحة نحو الأسفل بمسافة ملحوظة جداً وبخطوط واضحة -->
             <div class="relative z-10 space-y-3 max-w-xs mx-auto my-auto flex flex-col items-center justify-center pt-12">
-                <p class="text-xs sm:text-sm font-semibold font-tajawal text-gold-700 tracking-wide">
+                <p class="text-sm font-bold font-tajawal text-gold-700 tracking-wide">
                     بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيمِ
                 </p>
 
-                <p class="text-xs sm:text-sm font-free-calligraphy text-bronze/95 leading-relaxed px-2">
+                <p class="text-sm font-free-calligraphy text-bronze/95 leading-relaxed px-1">
                     ﴿وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ﴾
                 </p>
-                <p class="text-[10px] sm:text-xs text-gold-700/80 font-tajawal">
+                <p class="text-xs text-gold-700/80 font-tajawal">
                     سورة الروم، الآية (21)
                 </p>
 
                 <div class="space-y-1.5 pt-1">
-                    <p class="text-xs sm:text-sm font-semibold font-tajawal text-gold-700">
+                    <p class="text-sm font-bold font-tajawal text-gold-700">
                         بمشاعر ملؤها الفرح والامتنان،
                     </p>
-                    <p class="text-xs sm:text-sm font-medium font-tajawal text-bronze/90 leading-relaxed">
+                    <p class="text-sm font-medium font-tajawal text-bronze/90 leading-relaxed">
                         ندعوكم لتشاركونا فرحة العمر بمناسبة زفاف نجلينا
                     </p>
-                    <p class="text-xs sm:text-sm font-semibold font-tajawal text-gold-700 leading-relaxed pt-0.5">
+                    <p class="text-sm font-bold font-tajawal text-gold-700 leading-relaxed">
                         حضوركم يسعدنا وتزداد به فرحتنا بهجةً وسعادة
                     </p>
                 </div>
 
                 <div class="flex items-center justify-center pt-2">
-                    <img src="images/divider.png" alt="فاصل زخرفي" class="w-28 h-auto object-contain opacity-80">
+                    <img src="images/divider.png" alt="فاصل زخرفي" class="w-28 h-auto object-contain opacity-85">
                 </div>
             </div>
 
-            <!-- Bottom Scroll Indicator (Arrow & Text) -->
-            <div class="relative z-10 pb-4 flex flex-col items-center justify-center space-y-1 opacity-80">
-                <span class="text-[11px] sm:text-xs font-tajawal text-gold-700 font-medium">اسحب للأسفل</span>
+            <div class="relative z-10 pb-2 flex flex-col items-center justify-center space-y-1 opacity-80">
+                <span class="text-xs font-tajawal text-gold-700 font-semibold">اسحب للأسفل</span>
                 <div class="animate-custom-bounce">
-                    <i data-lucide="chevron-down" class="w-4 h-4 text-gold-700"></i>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-gold-700"></i>
                 </div>
             </div>
         </section>
 
-        <!-- INVITATION CARD SECTION (NAMES IMAGE CALLIGRAPHY - ENLARGED) -->
-        <section id="invitationCard" class="pb-12 pt-12 px-6 text-center bg-[#eae3dc] relative flex flex-col items-center justify-center reveal z-25">
+        <!-- INVITATION CARD SECTION -->
+        <section id="invitationCard" class="py-10 px-6 text-center bg-[#eae3dc] relative flex flex-col items-center justify-center reveal z-25">
             <div class="space-y-4 max-w-sm mx-auto flex flex-col items-center w-full">
                 <div class="space-y-2 text-gold-700 font-tajawal font-medium leading-relaxed w-full">
-                    <p class="text-xs text-gold-700/80">تتشرف</p>
+                    <p class="text-sm text-gold-700/80">تتشرف</p>
                     
-                    <!-- Fixed Flexbox Layout for Android Compatibility -->
-                    <div class="flex flex-row justify-between items-start w-full pt-1 px-2 gap-4">
-                        <div class="w-1/2 text-center space-y-0.5">
+                    <div class="flex flex-row justify-between items-start w-full px-2 gap-3">
+                        <div class="w-1/2 text-center space-y-1">
                             <p class="text-xs text-gold-700/80 font-normal">السيدة</p>
-                            <p class="text-xs font-semibold leading-relaxed text-bronze">إيمان محمد الدويس</p>
+                            <p class="text-sm font-bold leading-relaxed text-bronze">إيمان محمد الدويس</p>
                         </div>
-                        <div class="w-1/2 text-center space-y-0.5">
+                        <div class="w-1/2 text-center space-y-1">
                             <p class="text-xs text-gold-700/80 font-normal">السيدة</p>
-                            <p class="text-xs font-semibold leading-relaxed text-bronze">حصة محمد الشروقي</p>
+                            <p class="text-sm font-bold leading-relaxed text-bronze">حصة محمد الشروقي</p>
                         </div>
                     </div>
 
-                    <p class="text-xs text-gold-700/80 pt-2">بدعوتكم لحضور زفاف نجليهما</p>
+                    <p class="text-sm text-gold-700/80 pt-1">بدعوتكم لحضور زفاف نجليهما</p>
                 </div>
 
-                <!-- CALLIGRAPHY IMAGE FOR COUPLE NAMES (Enlarged) -->
                 <div class="py-3 flex justify-center items-center w-full">
-                    <img src="images/names.png" alt="مخطوطة أسماء العروسين محمد و العنود" class="w-72 sm:w-80 h-auto object-contain drop-shadow-sm">
+                    <img src="images/names.png" alt="مخطوطة أسماء العروسين محمد و العنود" class="w-72 h-auto object-contain drop-shadow-sm">
                 </div>
 
-                <div class="space-y-1 text-xs font-tajawal text-bronze/85 leading-relaxed font-normal pt-1">
-                    <p class="text-gold-700 font-medium">وذلك بمشيئة الله</p>
-                    <p class="pt-1 font-semibold text-bronze">يوم الجمعة</p>
-                    <p class="font-bold text-gold-700 dir-ltr">23.10.2026</p>
-                    <p class="text-xs font-medium text-gold-700 pt-0.5">الساعة 8:30 مساءً</p>
-                    <p class="pt-2 text-bronze/80">حضوركم يكتمل به فرحنا وتكتمل به أجمل أوقاتنا.</p>
+                <div class="space-y-1.5 text-sm font-tajawal text-bronze/85 leading-relaxed font-normal">
+                    <p class="text-gold-700 font-bold text-base">وذلك بمشيئة الله</p>
+                    <p class="font-bold text-bronze text-base">يوم الجمعة</p>
+                    <p class="font-black text-gold-700 dir-ltr text-base">23.10.2026</p>
+                    <p class="text-xs text-gold-700/90 font-semibold">الساعة 8:30 مساءً</p>
+                    <p class="pt-1 text-bronze/85 text-xs">حضوركم يكتمل به فرحنا وتكتمل به أجمل أوقاتنا.</p>
                 </div>
             </div>
         </section>
 
-        <!-- FULL-WIDTH FLORAL BANNER 2 ABOVE DATE BADGE -->
-        <section class="pt-2 pb-0 bg-[#eae3dc] text-center reveal">
+        <!-- FLORAL BANNER 2 -->
+        <section class="py-1 bg-[#eae3dc] text-center reveal">
             <div class="w-full overflow-hidden">
-                <img src="images/floral-banner-2.png" alt="فاصل ورود زخرفي" class="w-full h-auto object-cover opacity-95 scale-105">
+                <img src="images/floral-banner-2.png" alt="فاصل ورود زخرفي" class="w-full h-auto object-cover opacity-95">
             </div>
         </section>
 
-        <!-- DATE BADGE / SAVE THE DATE IMAGE SECTION -->
-        <section class="pt-2 pb-4 px-6 text-center bg-[#eae3dc] flex flex-col items-center justify-center reveal">
-            <div class="w-full max-w-[280px] sm:max-w-[320px] mx-auto flex justify-center items-center">
-                <img src="images/date-badge.png" alt="إحفظ التاريخ - أكتوبر 2026" class="w-full h-auto object-contain drop-shadow-sm">
+        <!-- DATE BADGE SECTION -->
+        <section class="py-3 px-6 text-center bg-[#eae3dc] flex flex-col items-center justify-center reveal">
+            <div class="w-full max-w-[260px] mx-auto flex justify-center items-center">
+                <img src="images/date-badge.png" alt="إحفظ التاريخ" class="w-full h-auto object-contain drop-shadow-sm">
             </div>
         </section>
 
         <!-- COUNTDOWN TIMER SECTION -->
-        <section class="pt-6 pb-10 px-0 text-center bg-[#eae3dc] flex flex-col items-center justify-center">
-            <div class="reveal space-y-2 mb-8 px-4">
-                <p class="text-xs text-gold-700/80 font-medium font-tajawal uppercase">الوقت المتبقي</p>
-                <div class="flex items-center justify-center pt-1 px-4">
+        <section class="py-8 px-4 text-center bg-[#eae3dc] flex flex-col items-center justify-center">
+            <div class="reveal space-y-2 mb-5">
+                <p class="text-xs text-gold-700/85 font-bold font-tajawal uppercase tracking-wider">الوقت المتبقي</p>
+                <div class="flex items-center justify-center">
                     <img src="images/divider.png" alt="فاصل زخرفي" class="w-28 h-auto object-contain opacity-75">
                 </div>
             </div>
 
-            <div id="countdown" class="grid grid-cols-4 gap-2 sm:gap-3 max-w-[360px] mx-auto px-4">
+            <div id="countdown" class="grid grid-cols-4 gap-2.5 max-w-[340px] mx-auto">
                 <div class="flex flex-col items-center reveal delay-circle-1">
                     <div class="circle-container flex items-center justify-center">
                         <svg class="w-full h-full" viewBox="0 0 80 80">
-                            <circle class="circle-bg" cx="40" cy="40" r="36" />
-                            <circle id="daysCircle" class="circle-progress" cx="40" cy="40" r="36" stroke-dasharray="226.19" stroke-dashoffset="226.19" />
+                            <circle class="circle-bg" cx="40" cy="40" r="34" />
+                            <circle id="daysCircle" class="circle-progress" cx="40" cy="40" r="34" stroke-dasharray="213.62" stroke-dashoffset="213.62" />
                         </svg>
                         <span id="days" class="absolute text-base font-tajawal text-bronze font-bold">00</span>
                     </div>
-                    <span class="text-xs text-gold-600/90 font-medium font-tajawal mt-3">يوم</span>
+                    <span class="text-xs text-gold-600 font-bold font-tajawal mt-2">يوم</span>
                 </div>
 
                 <div class="flex flex-col items-center reveal delay-circle-2">
                     <div class="circle-container flex items-center justify-center">
                         <svg class="w-full h-full" viewBox="0 0 80 80">
-                            <circle class="circle-bg" cx="40" cy="40" r="36" />
-                            <circle id="hoursCircle" class="circle-progress" cx="40" cy="40" r="36" stroke-dasharray="226.19" stroke-dashoffset="226.19" />
+                            <circle class="circle-bg" cx="40" cy="40" r="34" />
+                            <circle id="hoursCircle" class="circle-progress" cx="40" cy="40" r="34" stroke-dasharray="213.62" stroke-dashoffset="213.62" />
                         </svg>
                         <span id="hours" class="absolute text-base font-tajawal text-bronze font-bold">00</span>
                     </div>
-                    <span class="text-xs text-gold-600/90 font-medium font-tajawal mt-3">ساعة</span>
+                    <span class="text-xs text-gold-600 font-bold font-tajawal mt-2">ساعة</span>
                 </div>
 
                 <div class="flex flex-col items-center reveal delay-circle-3">
                     <div class="circle-container flex items-center justify-center">
                         <svg class="w-full h-full" viewBox="0 0 80 80">
-                            <circle class="circle-bg" cx="40" cy="40" r="36" />
-                            <circle id="minutesCircle" class="circle-progress" cx="40" cy="40" r="36" stroke-dasharray="226.19" stroke-dashoffset="226.19" />
+                            <circle class="circle-bg" cx="40" cy="40" r="34" />
+                            <circle id="minutesCircle" class="circle-progress" cx="40" cy="40" r="34" stroke-dasharray="213.62" stroke-dashoffset="213.62" />
                         </svg>
                         <span id="minutes" class="absolute text-base font-tajawal text-bronze font-bold">00</span>
                     </div>
-                    <span class="text-xs text-gold-600/90 font-medium font-tajawal mt-3">دقيقة</span>
+                    <span class="text-xs text-gold-600 font-bold font-tajawal mt-2">دقيقة</span>
                 </div>
 
                 <div class="flex flex-col items-center reveal delay-circle-4">
                     <div class="circle-container flex items-center justify-center">
                         <svg class="w-full h-full" viewBox="0 0 80 80">
-                            <circle class="circle-bg" cx="40" cy="40" r="36" />
-                            <circle id="secondsCircle" class="circle-progress" cx="40" cy="40" r="36" stroke-dasharray="226.19" stroke-dashoffset="226.19" />
+                            <circle class="circle-bg" cx="40" cy="40" r="34" />
+                            <circle id="secondsCircle" class="circle-progress" cx="40" cy="40" r="34" stroke-dasharray="213.62" stroke-dashoffset="213.62" />
                         </svg>
                         <span id="seconds" class="absolute text-base font-tajawal text-bronze font-bold">00</span>
                     </div>
-                    <span class="text-xs text-gold-600/90 font-medium font-tajawal mt-3">ثانية</span>
+                    <span class="text-xs text-gold-600 font-bold font-tajawal mt-2">ثانية</span>
                 </div>
             </div>
 
-            <p class="text-xs text-gold-700/80 font-medium font-tajawal uppercase mt-8 reveal px-4">23 . 10 . 2026</p>
+            <p class="text-xs text-gold-700 font-bold font-tajawal uppercase mt-6 tracking-wide">23 . 10 . 2026</p>
         </section>
 
         <!-- EVENT DETAILS SECTION -->
-        <section id="details" class="py-14 px-6 bg-[#eae3dc] text-center reveal">
-            <div class="max-w-xs mx-auto space-y-6">
+        <section id="details" class="py-12 px-6 bg-[#eae3dc] text-center reveal">
+            <div class="max-w-xs mx-auto space-y-5">
                 <div class="space-y-2">
-                    <p class="text-xs text-gold-700/80 font-medium font-tajawal uppercase">موقــــع الحفل</p>
+                    <p class="text-xs text-gold-700/85 font-bold font-tajawal uppercase tracking-wider">موقــــع الحفل</p>
                     <div class="flex items-center justify-center">
                         <img src="images/divider.png" alt="فاصل زخرفي" class="w-28 h-auto object-contain opacity-75">
                     </div>
                 </div>
 
-                <div class="w-full my-4 flex items-center justify-center">
-                    <img src="images/venue.png" alt="فندق ومنتجع ذي آرت البحرين" class="w-full max-w-[320px] h-auto object-contain">
+                <div class="w-full my-3 flex items-center justify-center">
+                    <img src="images/venue.png" alt="فندق ومنتجع ذي آرت البحرين" class="w-full max-w-[280px] h-auto object-contain">
                 </div>
 
-                <div class="space-y-1.5 text-xs text-bronze/85 font-tajawal">
-                    <p class="font-bold text-xs text-gold-700">فندق ومنتجع ذي آرت البحرين</p>
-                    <p class="text-xs leading-relaxed text-bronze/75">قاعة الثريا - البحرين</p>
-                    <p class="text-xs text-gold-700/80 pt-1 font-medium">23 . 10 . 2026 | الساعة 8:30 مساءً</p>
+                <div class="space-y-1.5 text-sm text-bronze/90 font-tajawal">
+                    <p class="font-bold text-sm text-gold-700">فندق ومنتجع ذي آرت البحرين</p>
+                    <p class="text-xs leading-relaxed text-bronze/85">قاعة الثريا - البحرين</p>
+                    <p class="text-xs text-gold-700 pt-0.5 font-bold">23 . 10 . 2026 | الساعة 8:30 مساءً</p>
                 </div>
 
                 <div class="pt-3 flex flex-col gap-2.5 max-w-[220px] mx-auto">
-                    <a href="https://maps.google.com/?q=The+Art+Hotel+and+Resort+Bahrain" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 px-6 border border-gold-600/60 hover:bg-gold-500/10 text-gold-700 rounded-full text-center text-xs font-tajawal font-medium uppercase transition duration-300">
+                    <a href="https://maps.google.com/?q=The+Art+Hotel+and+Resort+Bahrain" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 px-4 border-2 border-gold-600/70 hover:bg-gold-500/10 text-gold-700 rounded-full text-center text-xs font-tajawal font-bold uppercase transition duration-300 shadow-sm">
                         موقع القاعة (Map)
                     </a>
-                    <a id="addToCalendar" href="#" target="_blank" rel="noopener noreferrer" class="w-full py-2 px-4 text-gold-700/80 hover:text-gold-700 rounded-full text-center text-xs font-medium font-tajawal transition flex items-center justify-center gap-1.5">
-                        <i data-lucide="calendar-plus" class="w-3.5 h-3.5"></i>
+                    <a id="addToCalendar" href="#" target="_blank" rel="noopener noreferrer" class="w-full py-2 px-3 text-gold-700 hover:text-gold-800 rounded-full text-center text-xs font-bold font-tajawal transition flex items-center justify-center gap-1.5">
+                        <i data-lucide="calendar-plus" class="w-4 h-4"></i>
                         إضافة للتقويم
                     </a>
                 </div>
             </div>
         </section>
 
-        <!-- DRESS CODE & NOTES SECTION (WITH FULL-WIDTH FLORAL BANNER) -->
-        <section id="dressCode" class="pt-2 pb-10 bg-[#eae3dc] text-center reveal">
-            <!-- Full Width Floral Banner Image spanning from extreme right to extreme left -->
-            <div class="w-full overflow-hidden mb-6">
-                <img src="images/floral-banner.png" alt="فاصل ورود زخرفي" class="w-full h-auto object-cover opacity-95 scale-105">
+        <!-- DRESS CODE & NOTES SECTION -->
+        <section id="dressCode" class="pt-3 pb-10 bg-[#eae3dc] text-center reveal">
+            <div class="w-full overflow-hidden mb-5">
+                <img src="images/floral-banner.png" alt="فاصل ورود زخرفي" class="w-full h-auto object-cover opacity-95">
             </div>
 
-            <div class="max-w-xs mx-auto space-y-4 px-6">
-                <p class="text-base sm:text-lg text-gold-700 font-free-calligraphy leading-loose pt-1">
+            <div class="max-w-xs mx-auto space-y-4 px-4">
+                <p class="text-lg text-gold-700 font-free-calligraphy leading-loose">
                     حضوركم هو أجمل هدية تزيّن بداية رحلتنا
                 </p>
 
-                <p class="text-xs text-bronze/85 leading-relaxed font-tajawal px-2 pt-1">
+                <p class="text-xs text-bronze/90 leading-relaxed font-tajawal px-1 font-medium">
                     لتكتمل فرحتنا بأجواء أنيقة وهادئة، يُرجى أن تقتصر السهرة على الكبار فقط. نشكر لكم تفهمكم ومشاركتكم لنا هذه اللحظات الخاصة
                 </p>
 
-                <p class="text-xs font-semibold text-gold-700 font-tajawal pt-2">
+                <p class="text-sm font-bold text-gold-700 font-tajawal pt-2">
                     مع كل الحب،
                 </p>
             </div>
         </section>
 
         <!-- CLOUDS & FINAL CLOSING SECTION -->
-        <section class="relative w-full py-24 px-6 text-center bg-[#eae3dc] flex flex-col items-center justify-center overflow-hidden reveal sm:rounded-b-[40px]">
-            <!-- Background Clouds Image (Spanning from edge to edge: w-full h-full object-cover) -->
+        <section class="relative w-full py-24 px-6 text-center bg-[#eae3dc] flex flex-col items-center justify-center overflow-hidden reveal">
             <img src="images/clouds.png" alt="غيوم" class="absolute inset-0 w-full h-full object-cover opacity-90 pointer-events-none z-0">
-
-            <!-- Top Smooth Fade Overlay from #eae3dc -->
             <div class="clouds-fade-top"></div>
 
-            <div class="relative z-10 space-y-3 max-w-xs mx-auto flex flex-col items-center">
-                <!-- Cleaned section as requested -->
+            <div class="relative z-10 space-y-2 max-w-xs mx-auto flex flex-col items-center">
+                <!-- الختامية -->
             </div>
         </section>
 
@@ -453,7 +455,6 @@
                     e.preventDefault();
                 }
 
-                // 1. Play Background Music safely
                 if (bgMusic) {
                     try {
                         await bgMusic.play();
@@ -462,7 +463,6 @@
                     }
                 }
 
-                // 2. Hide Poster and Play Cover Video immediately
                 if (posterImage) posterImage.style.opacity = '0';
                 if (coverVideo) {
                     coverVideo.classList.remove('hidden');
@@ -477,7 +477,6 @@
                 }
             }
 
-            // Clean unified event listener
             if (sealClickArea) {
                 sealClickArea.addEventListener('click', handleUserInteraction, { once: true });
                 sealClickArea.addEventListener('touchstart', handleUserInteraction, { once: true, passive: true });
@@ -487,7 +486,6 @@
                 coverVideo.addEventListener('ended', dismissCover);
             }
 
-            // Scroll Reveal Observer
             const revealElements = document.querySelectorAll('.reveal');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -500,9 +498,8 @@
 
             revealElements.forEach(el => observer.observe(el));
 
-            // Optimized Countdown Timer Logic (Updated to 23 October 2026, 20:30)
             const eventDate = new Date('October 23, 2026 20:30:00').getTime();
-            const circumference = 226.19;
+            const circumference = 213.62;
 
             const daysEl = document.getElementById('days');
             const hoursEl = document.getElementById('hours');
@@ -537,7 +534,6 @@
                 if (minutesEl) minutesEl.innerText = String(minutes).padStart(2, '0');
                 if (secondsEl) secondsEl.innerText = String(seconds).padStart(2, '0');
 
-                // Dynamic Dashoffset Progress
                 if (daysCircle) daysCircle.style.strokeDashoffset = circumference - (Math.min(days, 30) / 30) * circumference;
                 if (hoursCircle) hoursCircle.style.strokeDashoffset = circumference - (hours / 24) * circumference;
                 if (minutesCircle) minutesCircle.style.strokeDashoffset = circumference - (minutes / 60) * circumference;
@@ -547,7 +543,6 @@
             const countdownInterval = setInterval(updateCountdown, 1000);
             updateCountdown();
 
-            // Dynamic Calendar Link Setup
             const addToCalBtn = document.getElementById('addToCalendar');
             if (addToCalBtn) {
                 const calTitle = encodeURIComponent("حفل زفاف محمد & العنود");
