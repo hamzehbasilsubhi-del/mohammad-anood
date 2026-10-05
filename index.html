@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>دعوة زفاف محمد & العنود</title>
 
     <!-- Tailwind CSS CDN -->
@@ -47,6 +47,7 @@
     <style>
         * {
             -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
             touch-action: manipulation;
             box-sizing: border-box;
         }
@@ -59,10 +60,12 @@
             width: 100%;
             margin: 0;
             padding: 0;
+            -webkit-text-size-adjust: 100%;
         }
         
         .font-tajawal, [lang="ar"], body, h1, h2, h3, h4, p, span, div, a {
             letter-spacing: normal !important;
+            -webkit-font-smoothing: antialiased;
         }
 
         .font-free-calligraphy {
@@ -73,12 +76,13 @@
             font-family: 'Great Vibes', cursive;
         }
 
-        /* 9:16 Aspect Ratio Container Fix for All Devices */
+        /* 9:16 Aspect Ratio Container Fix with Cross-Browser Dynamic Heights */
         .mobile-screen-frame {
             width: 100%;
             max-width: 412px;
             aspect-ratio: 9 / 16;
             min-height: 100vh;
+            min-height: 100dvh;
             margin: 0 auto;
             position: relative;
             background-color: #eae3dc;
@@ -91,14 +95,16 @@
             .mobile-screen-frame {
                 height: 896px;
                 max-height: 90vh;
+                max-height: 90dvh;
                 border-radius: 40px;
                 box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
                 border: 1px solid rgba(229, 213, 177, 0.5);
             }
         }
 
-        /* Video Cover Overlay Transition */
+        /* Video Cover Overlay Transition with Vendor Prefixes */
         #videoCover {
+            -webkit-transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.6s;
             transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.6s;
             will-change: opacity, visibility;
         }
@@ -115,6 +121,13 @@
             left: 0;
             right: 0;
             height: 45%;
+            background: -webkit-linear-gradient(
+                top,
+                rgba(234, 227, 220, 0) 0%,
+                rgba(234, 227, 220, 0.2) 30%,
+                rgba(234, 227, 220, 0.7) 70%,
+                #eae3dc 100%
+            );
             background: linear-gradient(
                 to bottom,
                 rgba(234, 227, 220, 0) 0%,
@@ -133,6 +146,13 @@
             left: 0;
             right: 0;
             height: 45%;
+            background: -webkit-linear-gradient(
+                top,
+                #eae3dc 0%,
+                rgba(234, 227, 220, 0.7) 30%,
+                rgba(234, 227, 220, 0.2) 70%,
+                rgba(234, 227, 220, 0) 100%
+            );
             background: linear-gradient(
                 to bottom,
                 #eae3dc 0%,
@@ -145,24 +165,32 @@
         }
 
         /* Bounce Animation for Scroll Indicator */
+        @-webkit-keyframes customBounce {
+            0%, 100% { -webkit-transform: translateY(0); transform: translateY(0); }
+            50% { -webkit-transform: translateY(6px); transform: translateY(6px); }
+        }
         @keyframes customBounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(6px); }
+            0%, 100% { -webkit-transform: translateY(0); transform: translateY(0); }
+            50% { -webkit-transform: translateY(6px); transform: translateY(6px); }
         }
         .animate-custom-bounce {
+            -webkit-animation: customBounce 2s infinite ease-in-out;
             animation: customBounce 2s infinite ease-in-out;
         }
 
         /* Scroll Reveal Animation Styles */
         .reveal {
             opacity: 0;
+            -webkit-transform: translateY(20px);
             transform: translateY(20px);
+            -webkit-transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), -webkit-transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
             transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
             will-change: opacity, transform;
         }
 
         .reveal.active {
             opacity: 1;
+            -webkit-transform: translateY(0);
             transform: translateY(0);
         }
 
@@ -186,13 +214,16 @@
             stroke: #b89252;
             stroke-width: 1.8;
             stroke-linecap: round;
+            -webkit-transform: rotate(-90deg);
             transform: rotate(-90deg);
+            -webkit-transform-origin: 50% 50%;
             transform-origin: 50% 50%;
+            -webkit-transition: stroke-dashoffset 0.8s ease;
             transition: stroke-dashoffset 0.8s ease;
         }
     </style>
 </head>
-<body class="bg-[#000000] flex justify-center items-center min-h-screen sm:py-4 font-tajawal">
+<body class="bg-[#000000] flex justify-center items-center min-h-[100dvh] sm:py-4 font-tajawal">
 
     <!-- BACKGROUND AUDIO -->
     <audio id="bgMusic" loop preload="auto" playsinline>
@@ -216,7 +247,7 @@
             <img src="images/hero-bg.jpg" alt="خلفية ترحيبية" class="absolute inset-0 w-full h-full object-cover z-0 opacity-95">
             <div class="welcome-fade-bottom"></div>
 
-            <!-- الكتلة النصية المزحزحة جذرياً نحو الأسفل لمنع أي تداخل مع الزهور العلوية في كافة أجهزة أندرويد -->
+            <!-- الكتلة النصية المزحزحة جذرياً نحو الأسفل لمنع أي تداخل مع الزهور العلوية في كافة الأجهزة -->
             <div class="relative z-10 space-y-3 max-w-xs mx-auto flex flex-col items-center justify-end pb-4 pt-12">
                 <p class="text-sm font-bold font-tajawal text-gold-700 tracking-wide">
                     بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيمِ
