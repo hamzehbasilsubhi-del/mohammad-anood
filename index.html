@@ -55,6 +55,7 @@
         html, body {
             background-color: #000000;
             font-family: 'Tajawal', sans-serif;
+            font-weight: 300; /* تخفيف عام لوزن الخط */
             color: #5c4a28;
             overflow-x: hidden;
             width: 100%;
@@ -247,27 +248,26 @@
             <img src="images/hero-bg.jpg" alt="خلفية ترحيبية" class="absolute inset-0 w-full h-full object-cover z-0 opacity-95">
             <div class="welcome-fade-bottom"></div>
 
-            <!-- الكتلة النصية المزحزحة جذرياً نحو الأسفل لمنع أي تداخل مع الزهور العلوية في كافة الأجهزة -->
             <div class="relative z-10 space-y-3 max-w-xs mx-auto flex flex-col items-center justify-end pb-4 pt-12">
-                <p class="text-sm font-bold font-tajawal text-gold-700 tracking-wide">
+                <p class="text-sm font-normal font-tajawal text-gold-700 tracking-wide">
                     بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيمِ
                 </p>
 
                 <p class="text-sm font-free-calligraphy text-bronze/95 leading-relaxed px-1">
                     ﴿وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ﴾
                 </p>
-                <p class="text-xs text-gold-700/80 font-tajawal">
+                <p class="text-xs font-light text-gold-700/80 font-tajawal">
                     سورة الروم، الآية (21)
                 </p>
 
                 <div class="space-y-1.5 pt-1">
-                    <p class="text-sm font-bold font-tajawal text-gold-700">
+                    <p class="text-sm font-normal font-tajawal text-gold-700">
                         بمشاعر ملؤها الفرح والامتنان،
                     </p>
-                    <p class="text-sm font-medium font-tajawal text-bronze/90 leading-relaxed">
+                    <p class="text-sm font-light font-tajawal text-bronze/90 leading-relaxed">
                         ندعوكم لتشاركونا فرحة العمر بمناسبة زفاف نجلينا
                     </p>
-                    <p class="text-sm font-bold font-tajawal text-gold-700 leading-relaxed">
+                    <p class="text-sm font-normal font-tajawal text-gold-700 leading-relaxed">
                         حضوركم يسعدنا وتزداد به فرحتنا بهجةً وسعادة
                     </p>
                 </div>
@@ -278,7 +278,7 @@
             </div>
 
             <div class="relative z-10 pb-1 pt-2 flex flex-col items-center justify-center space-y-1 opacity-80">
-                <span class="text-xs font-tajawal text-gold-700 font-semibold">اسحب للأسفل</span>
+                <span class="text-xs font-light font-tajawal text-gold-700">اسحب للأسفل</span>
                 <div class="animate-custom-bounce">
                     <i data-lucide="chevron-down" class="w-5 h-5 text-gold-700"></i>
                 </div>
@@ -288,17 +288,17 @@
         <!-- INVITATION CARD SECTION -->
         <section id="invitationCard" class="py-10 px-6 text-center bg-[#eae3dc] relative flex flex-col items-center justify-center reveal z-25">
             <div class="space-y-4 max-w-sm mx-auto flex flex-col items-center w-full">
-                <div class="space-y-2 text-gold-700 font-tajawal font-medium leading-relaxed w-full">
+                <div class="space-y-2 text-gold-700 font-tajawal font-light leading-relaxed w-full">
                     <p class="text-sm text-gold-700/80">تتشرف</p>
                     
                     <div class="flex flex-row justify-between items-start w-full px-2 gap-3">
                         <div class="w-1/2 text-center space-y-1">
-                            <p class="text-xs text-gold-700/80 font-normal">السيدة</p>
-                            <p class="text-sm font-bold leading-relaxed text-bronze">إيمان محمد الدويس</p>
+                            <p class="text-xs text-gold-700/80 font-light">السيدة</p>
+                            <p class="text-sm font-normal leading-relaxed text-bronze">إيمان محمد الدويس</p>
                         </div>
                         <div class="w-1/2 text-center space-y-1">
-                            <p class="text-xs text-gold-700/80 font-normal">السيدة</p>
-                            <p class="text-sm font-bold leading-relaxed text-bronze">حصة محمد الشروقي</p>
+                            <p class="text-xs text-gold-700/80 font-light">السيدة</p>
+                            <p class="text-sm font-normal leading-relaxed text-bronze">حصة محمد الشروقي</p>
                         </div>
                     </div>
 
@@ -309,11 +309,11 @@
                     <img src="images/names.png" alt="مخطوطة أسماء العروسين محمد و العنود" class="w-72 h-auto object-contain drop-shadow-sm">
                 </div>
 
-                <div class="space-y-1.5 text-sm font-tajawal text-bronze/85 leading-relaxed font-normal">
-                    <p class="text-gold-700 font-bold text-base">وذلك بمشيئة الله</p>
-                    <p class="font-bold text-bronze text-base">يوم الجمعة</p>
-                    <p class="font-black text-gold-700 dir-ltr text-base">23.10.2026</p>
-                    <p class="text-xs text-gold-700/90 font-semibold">الساعة 8:30 مساءً</p>
+                <div class="space-y-1.5 text-sm font-tajawal text-bronze/85 leading-relaxed font-light">
+                    <p class="text-gold-700 font-normal text-base">وذلك بمشيئة الله</p>
+                    <p class="font-normal text-bronze text-base">يوم الجمعة</p>
+                    <p class="font-medium text-gold-700 dir-ltr text-base">23.10.2026</p>
+                    <p class="text-xs text-gold-700/90 font-normal">الساعة 8:30 مساءً</p>
                     <p class="pt-1 text-bronze/85 text-xs">حضوركم يكتمل به فرحنا وتكتمل به أجمل أوقاتنا.</p>
                 </div>
             </div>
@@ -336,7 +336,7 @@
         <!-- COUNTDOWN TIMER SECTION -->
         <section class="py-8 px-4 text-center bg-[#eae3dc] flex flex-col items-center justify-center">
             <div class="reveal space-y-2 mb-5">
-                <p class="text-xs text-gold-700/85 font-bold font-tajawal uppercase tracking-wider">الوقت المتبقي</p>
+                <p class="text-xs text-gold-700/85 font-normal font-tajawal uppercase tracking-wider">الوقت المتبقي</p>
                 <div class="flex items-center justify-center">
                     <img src="images/divider.png" alt="فاصل زخرفي" class="w-28 h-auto object-contain opacity-75">
                 </div>
@@ -349,9 +349,9 @@
                             <circle class="circle-bg" cx="40" cy="40" r="34" />
                             <circle id="daysCircle" class="circle-progress" cx="40" cy="40" r="34" stroke-dasharray="213.62" stroke-dashoffset="213.62" />
                         </svg>
-                        <span id="days" class="absolute text-base font-tajawal text-bronze font-bold">00</span>
+                        <span id="days" class="absolute text-base font-tajawal text-bronze font-normal">00</span>
                     </div>
-                    <span class="text-xs text-gold-600 font-bold font-tajawal mt-2">يوم</span>
+                    <span class="text-xs text-gold-600 font-light font-tajawal mt-2">يوم</span>
                 </div>
 
                 <div class="flex flex-col items-center reveal delay-circle-2">
@@ -360,9 +360,9 @@
                             <circle class="circle-bg" cx="40" cy="40" r="34" />
                             <circle id="hoursCircle" class="circle-progress" cx="40" cy="40" r="34" stroke-dasharray="213.62" stroke-dashoffset="213.62" />
                         </svg>
-                        <span id="hours" class="absolute text-base font-tajawal text-bronze font-bold">00</span>
+                        <span id="hours" class="absolute text-base font-tajawal text-bronze font-normal">00</span>
                     </div>
-                    <span class="text-xs text-gold-600 font-bold font-tajawal mt-2">ساعة</span>
+                    <span class="text-xs text-gold-600 font-light font-tajawal mt-2">ساعة</span>
                 </div>
 
                 <div class="flex flex-col items-center reveal delay-circle-3">
@@ -371,9 +371,9 @@
                             <circle class="circle-bg" cx="40" cy="40" r="34" />
                             <circle id="minutesCircle" class="circle-progress" cx="40" cy="40" r="34" stroke-dasharray="213.62" stroke-dashoffset="213.62" />
                         </svg>
-                        <span id="minutes" class="absolute text-base font-tajawal text-bronze font-bold">00</span>
+                        <span id="minutes" class="absolute text-base font-tajawal text-bronze font-normal">00</span>
                     </div>
-                    <span class="text-xs text-gold-600 font-bold font-tajawal mt-2">دقيقة</span>
+                    <span class="text-xs text-gold-600 font-light font-tajawal mt-2">دقيقة</span>
                 </div>
 
                 <div class="flex flex-col items-center reveal delay-circle-4">
@@ -382,20 +382,20 @@
                             <circle class="circle-bg" cx="40" cy="40" r="34" />
                             <circle id="secondsCircle" class="circle-progress" cx="40" cy="40" r="34" stroke-dasharray="213.62" stroke-dashoffset="213.62" />
                         </svg>
-                        <span id="seconds" class="absolute text-base font-tajawal text-bronze font-bold">00</span>
+                        <span id="seconds" class="absolute text-base font-tajawal text-bronze font-normal">00</span>
                     </div>
-                    <span class="text-xs text-gold-600 font-bold font-tajawal mt-2">ثانية</span>
+                    <span class="text-xs text-gold-600 font-light font-tajawal mt-2">ثانية</span>
                 </div>
             </div>
 
-            <p class="text-xs text-gold-700 font-bold font-tajawal uppercase mt-6 tracking-wide">23 . 10 . 2026</p>
+            <p class="text-xs text-gold-700 font-normal font-tajawal uppercase mt-6 tracking-wide">23 . 10 . 2026</p>
         </section>
 
         <!-- EVENT DETAILS SECTION -->
         <section id="details" class="py-12 px-6 bg-[#eae3dc] text-center reveal">
             <div class="max-w-xs mx-auto space-y-5">
                 <div class="space-y-2">
-                    <p class="text-xs text-gold-700/85 font-bold font-tajawal uppercase tracking-wider">موقــــع الحفل</p>
+                    <p class="text-xs text-gold-700/85 font-normal font-tajawal uppercase tracking-wider">موقــــع الحفل</p>
                     <div class="flex items-center justify-center">
                         <img src="images/divider.png" alt="فاصل زخرفي" class="w-28 h-auto object-contain opacity-75">
                     </div>
@@ -406,16 +406,16 @@
                 </div>
 
                 <div class="space-y-1.5 text-sm text-bronze/90 font-tajawal">
-                    <p class="font-bold text-sm text-gold-700">فندق ومنتجع ذي آرت البحرين</p>
-                    <p class="text-xs leading-relaxed text-bronze/85">قاعة الثريا - البحرين</p>
-                    <p class="text-xs text-gold-700 pt-0.5 font-bold">23 . 10 . 2026 | الساعة 8:30 مساءً</p>
+                    <p class="font-normal text-sm text-gold-700">فندق ومنتجع ذي آرت البحرين</p>
+                    <p class="text-xs leading-relaxed text-bronze/85 font-light">قاعة الثريا - البحرين</p>
+                    <p class="text-xs text-gold-700 pt-0.5 font-normal">23 . 10 . 2026 | الساعة 8:30 مساءً</p>
                 </div>
 
                 <div class="pt-3 flex flex-col gap-2.5 max-w-[220px] mx-auto">
-                    <a href="https://maps.google.com/?q=The+Art+Hotel+and+Resort+Bahrain" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 px-4 border-2 border-gold-600/70 hover:bg-gold-500/10 text-gold-700 rounded-full text-center text-xs font-tajawal font-bold uppercase transition duration-300 shadow-sm">
+                    <a href="https://maps.google.com/?q=The+Art+Hotel+and+Resort+Bahrain" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 px-4 border border-gold-600/60 hover:bg-gold-500/10 text-gold-700 rounded-full text-center text-xs font-tajawal font-normal uppercase transition duration-300 shadow-sm">
                         موقع القاعة (Map)
                     </a>
-                    <a id="addToCalendar" href="#" target="_blank" rel="noopener noreferrer" class="w-full py-2 px-3 text-gold-700 hover:text-gold-800 rounded-full text-center text-xs font-bold font-tajawal transition flex items-center justify-center gap-1.5">
+                    <a id="addToCalendar" href="#" target="_blank" rel="noopener noreferrer" class="w-full py-2 px-3 text-gold-700 hover:text-gold-800 rounded-full text-center text-xs font-normal font-tajawal transition flex items-center justify-center gap-1.5">
                         <i data-lucide="calendar-plus" class="w-4 h-4"></i>
                         إضافة للتقويم
                     </a>
@@ -434,11 +434,11 @@
                     حضوركم هو أجمل هدية تزيّن بداية رحلتنا
                 </p>
 
-                <p class="text-xs text-bronze/90 leading-relaxed font-tajawal px-1 font-medium">
+                <p class="text-xs text-bronze/90 leading-relaxed font-tajawal px-1 font-light">
                     لتكتمل فرحتنا بأجواء أنيقة وهادئة، يُرجى أن تقتصر السهرة على الكبار فقط. نشكر لكم تفهمكم ومشاركتكم لنا هذه اللحظات الخاصة
                 </p>
 
-                <p class="text-sm font-bold text-gold-700 font-tajawal pt-2">
+                <p class="text-sm font-normal text-gold-700 font-tajawal pt-2">
                     مع كل الحب،
                 </p>
             </div>
