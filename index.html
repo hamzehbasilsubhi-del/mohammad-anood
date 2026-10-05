@@ -212,15 +212,12 @@
     <div class="mobile-screen-frame flex flex-col relative">
 
         <!-- WELCOME SECTION -->
-        <section id="welcomeSection" class="relative z-20 w-full h-full min-h-[100%] flex flex-col justify-between items-center text-center px-6 py-6 overflow-hidden">
+        <section id="welcomeSection" class="relative z-20 w-full h-full min-h-[100%] flex flex-col justify-end items-center text-center px-6 pb-6 pt-16 overflow-hidden">
             <img src="images/hero-bg.jpg" alt="خلفية ترحيبية" class="absolute inset-0 w-full h-full object-cover z-0 opacity-95">
             <div class="welcome-fade-bottom"></div>
 
-            <!-- مسافة علوية أكبر بكثير لترحيل المحتوى نحو الأسفل بوضوح -->
-            <div class="h-48"></div>
-
-            <!-- الكتلة النصية المزحزحة نحو الأسفل بمسافة ملحوظة جداً وبخطوط واضحة -->
-            <div class="relative z-10 space-y-3 max-w-xs mx-auto my-auto flex flex-col items-center justify-center pt-12">
+            <!-- الكتلة النصية المزحزحة جذرياً نحو الأسفل لمنع أي تداخل مع الزهور العلوية في كافة أجهزة أندرويد -->
+            <div class="relative z-10 space-y-3 max-w-xs mx-auto flex flex-col items-center justify-end pb-4 pt-12">
                 <p class="text-sm font-bold font-tajawal text-gold-700 tracking-wide">
                     بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيمِ
                 </p>
@@ -249,7 +246,7 @@
                 </div>
             </div>
 
-            <div class="relative z-10 pb-2 flex flex-col items-center justify-center space-y-1 opacity-80">
+            <div class="relative z-10 pb-1 pt-2 flex flex-col items-center justify-center space-y-1 opacity-80">
                 <span class="text-xs font-tajawal text-gold-700 font-semibold">اسحب للأسفل</span>
                 <div class="animate-custom-bounce">
                     <i data-lucide="chevron-down" class="w-5 h-5 text-gold-700"></i>
