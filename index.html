@@ -48,13 +48,17 @@
         * {
             -webkit-tap-highlight-color: transparent;
             touch-action: manipulation;
+            box-sizing: border-box;
         }
 
-        body {
+        html, body {
             background-color: #000000;
             font-family: 'Tajawal', sans-serif;
             color: #5c4a28;
             overflow-x: hidden;
+            width: 100%;
+            margin: 0;
+            padding: 0;
         }
         
         .font-tajawal, [lang="ar"], body, h1, h2, h3, h4, p, span, div, a {
@@ -171,7 +175,7 @@
         }
     </style>
 </head>
-<body class="bg-[#f3efe6] text-bronze antialiased flex justify-center items-center min-h-screen sm:py-6 font-tajawal">
+<body class="bg-[#000000] sm:bg-[#f3efe6] text-bronze antialiased flex justify-center items-center min-h-screen sm:py-6 font-tajawal">
 
     <!-- BACKGROUND AUDIO -->
     <audio id="bgMusic" loop preload="auto" playsinline>
@@ -204,10 +208,10 @@
             <div class="welcome-fade-bottom"></div>
 
             <!-- Top Spacer to Push Content Downwards -->
-            <div class="h-36 sm:h-40"></div>
+            <div class="h-32 sm:h-40"></div>
 
             <!-- Overlay Content (Lowered Ayah and Invitation Text) -->
-            <div class="relative z-10 space-y-3.5 max-w-xs mx-auto my-auto flex flex-col items-center justify-center pt-16">
+            <div class="relative z-10 space-y-3 max-w-xs mx-auto my-auto flex flex-col items-center justify-center pt-12">
                 <p class="text-xs sm:text-sm font-semibold font-tajawal text-gold-700 tracking-wide">
                     بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيمِ
                 </p>
